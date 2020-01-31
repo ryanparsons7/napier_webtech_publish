@@ -12,8 +12,15 @@ footer {
 }
 
 body {
-  margin-top: 100px;
-  margin-bottom: 100px;
-  margin-right: 150px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 80px;
   margin-left: 80px;
+}
+
+header {
+  margin-top: 0px;
+  margin-bottom: 100px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
