@@ -7,61 +7,69 @@ nav {
   font-size: 16px
 }
 
-footer {
-  font-style: italic;
+/* The navigation menu */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
 }
 
-section {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-right: 80px;
-  margin-left: 80px;
-}
-
-header {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-right: 0px;
-  margin-left: 0px;
-}
-
-.dropbtn {
-  background-color: #000000;
+/* Navigation links */
+.navbar a {
+  float: left;
+  font-size: 16px;
   color: white;
-  padding: 16px;
-  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The subnavigation menu */
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+/* Subnav button */
+.subnav .subnavbtn {
   font-size: 16px;
   border: none;
-  cursor: pointer;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
+/* Add a red background color to navigation links on hover */
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: red;
 }
 
-.dropdown-content {
+/* Style the subnav content - positioned absolute */
+.subnav-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  left: 0;
+  background-color: red;
+  width: 100%;
   z-index: 1;
 }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
+/* Style the subnav links */
+.subnav-content a {
+  float: left;
+  color: white;
   text-decoration: none;
-  display: block;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-  display: block;
+/* Add a grey background color on hover */
+.subnav-content a:hover {
+  background-color: #eee;
+  color: black;
 }
 
-.dropdown:hover .dropbtn {
-  background-color: #000000;
+/* When you move the mouse over the subnav container, open the subnav content */
+.subnav:hover .subnav-content {
+  display: block;
 }
