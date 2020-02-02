@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <?php include "head.html" ?>
 <html>
+  <head>
+    <meta charset ="UTF -8"/>
+    <title>Choose your own adventure - Home</title>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="/napier_webtech_publish/adventure/images/favicon.ico" sizes="256x256" type="image/ico">
+    <title></title>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+    <script>
+    $(function(){
+      $("#header").load("header.html");
+      $("#footer").load("footer.html");
+    });
+    </script>
+  </head>
   <body>
-    <header>
-    <h1>Choose Your Own Adventure</h1>
-    <hr/>
-    <nav>
-      <div class="dropdown">
-      <button class="dropbtn">Menu</button>
-      <div class="dropdown-content">
-      <a href="/napier_webtech_publish/adventure/index.html">Home</a>
-      </div>
-    </div>
-    </nav>
-    <hr/>
-    </header>
+    <div id="header"></div>
+    <!--Remaining section-->
     <section>
     <p>To get started, choose an adventure at the top of the page.</p>
     </section>
     <hr/>
-    <footer>Choose Your Own Adventure - All rights reserved</footer>
+    <div id="footer"></div>
   </body>
 </html>
