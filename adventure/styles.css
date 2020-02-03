@@ -78,9 +78,7 @@ nav {
   width: 800px;
   max-width: 80%;
   background-color: white;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px 2px;
+  padding: 50px 0px 50px;
 }
 
 .adv_btn-grid {
@@ -104,7 +102,7 @@ nav {
 }
 
 .box_container {
-  padding: 0;
+  padding: 100px;
   margin: 0;
   display: flex;
   justify-content: center;
