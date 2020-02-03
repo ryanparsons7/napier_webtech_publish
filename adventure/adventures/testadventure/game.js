@@ -7,8 +7,12 @@ let state = {}
 
 function startGame() {
   state = {}
-  attackSound = new sound("sounds/attack.mp3");
   showTextNode(1)
+  loadSounds()
+}
+
+function loadSounds() {
+  attackSound = new sound("sounds/attack.mp3");
 }
 
 function sound(src) {
