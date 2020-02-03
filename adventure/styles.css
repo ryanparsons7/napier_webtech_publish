@@ -103,13 +103,11 @@ nav {
   border-color: black;
 }
 
-.adv_container {
+.box_container {
   padding: 0;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
-  background-color: #17171b;
 }
