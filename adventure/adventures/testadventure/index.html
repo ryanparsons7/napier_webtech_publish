@@ -7,9 +7,26 @@
   <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
   <script defer src="game.js"></script>
+  <title>Choose your own adventure - Test Adventure</title>
+  <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="icon" href="/napier_webtech_publish/adventure/images/favicon.ico" sizes="256x256" type="image/ico">
+  <title></title>
+  <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous">
+  </script>
+  <script>
+  $(function(){
+    $("#header").load("/napier_webtech_publish/adventure/header.html");
+    $("#footer").load("/napier_webtech_publish/adventure/footer.html");
+  });
+  </script>
   <title>Text Adventure</title>
 </head>
 <body>
+  <div id="header"></div>
   <div class="container">
     <div id="text">Text</div>
     <div id="option-buttons" class="btn-grid">
@@ -19,5 +36,6 @@
       <button class="btn">Option 4</button>
     </div>
   </div>
+  <div id="footer"></div>
 </body>
 </html>
