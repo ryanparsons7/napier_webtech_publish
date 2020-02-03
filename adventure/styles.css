@@ -78,7 +78,6 @@ nav {
   width: 800px;
   max-width: 80%;
   background-color: white;
-  padding: 50px 0px 50px;
 }
 
 .adv_btn-grid {
@@ -108,7 +107,5 @@ nav {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 20px;
-  font-weight: bold;
+  padding: 50px 0px 50px;
 }
