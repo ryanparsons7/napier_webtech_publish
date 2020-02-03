@@ -2,16 +2,21 @@
 <html>
   <head>
     <meta charset ="UTF -8"/>
+    <!--Page Title-->
     <title>Choose your own adventure - Home</title>
+    <!--Import Stylesheet for Orbitron Font-->
     <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!--Import adventure stylesheet-->
+    <link rel="stylesheet" type="text/css" href="/napier_webtech_publish/adventure/styles.css">
+    <!--Set favicon-->
     <link rel="icon" href="/napier_webtech_publish/adventure/images/favicon.ico" sizes="256x256" type="image/ico">
-    <title></title>
+    <!--Set JQuery script needed for include-->
     <script
         src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous">
     </script>
+    <!--Set tags to include header and footer html files-->
     <script>
     $(function(){
       $("#header").load("/napier_webtech_publish/adventure/header.html");
@@ -20,12 +25,12 @@
     </script>
   </head>
   <body>
+    <!--Include header-->
     <div id="header"></div>
-    <!--Remaining section-->
     <section>
     <p>To get started, choose an adventure at the top of the page.</p>
     </section>
-    <hr/>
+    <!--Include footer-->
     <div id="footer"></div>
   </body>
 </html>
