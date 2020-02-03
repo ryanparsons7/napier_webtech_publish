@@ -5,6 +5,7 @@ let state = {}
 
 function startGame() {
   state = {}
+  name = ""
   showTextNode(1)
 }
 
