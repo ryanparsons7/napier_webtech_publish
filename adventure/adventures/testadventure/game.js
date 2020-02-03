@@ -40,8 +40,9 @@ function selectOption(option) {
 }
 
 const textNodes = [{
-    id: 1,
-    text: 'You wake up in a strange place and you see a jar of blue goo near you.',
+    id: start,
+    text: 'Welcome to AdventureSurf. My name is EagleFoot and I\'ll be your guide on your quest. What is your name traveller?'
+(',
     options: [{
         text: 'Take the goo',
         setState: {

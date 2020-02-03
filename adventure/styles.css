@@ -88,10 +88,10 @@ nav {
 }
 
 .adv_btn {
-  background-color: hsl(200, 100%, 50%);
-  border: 1px solid hsl(200, 100%, 30%);
-  border-radius: 5px;
-  padding: 5px 10px;
+  background-color: hsl(0, 0%, 20%);
+  border: 1px solid hsl(0, 0%, 0%);
+  border-radius: 0px;
+  padding: 8px 8px;
   color: white;
   outline: none;
 }
