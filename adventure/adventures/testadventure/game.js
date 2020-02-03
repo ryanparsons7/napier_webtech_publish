@@ -41,7 +41,7 @@ function selectOption(option) {
 
 const textNodes = [{
     id: 1,
-    text: 'Welcome to AdventureSurf. My name is EagleFoot and I\'ll be your guide on your quest. What is your name traveller?'
+    text: 'Welcome to AdventureSurf. My name is EagleFoot and I\'ll be your guide on your quest. What is your name traveller?',
 (',
     options: [{
         text: 'Take the goo',
