@@ -82,7 +82,7 @@ nav {
   font-family: 'Orbitron', sans-serif;
 }
 
-.adv_btn-grid {
+.adv_btn_container {
   display: grid;
   grid-template-columns: repeat(1, auto);
   gap: 10px;
