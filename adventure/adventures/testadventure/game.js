@@ -29,6 +29,9 @@ function submitName() {
 
 function showTextNode(textNodeIndex) {
   const textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
+  if (textNode.sound) {
+    alert('Playing sound');
+  }
   textElement.innerText = textNode.text;
   while (optionButtonsElement.firstChild) {
     optionButtonsElement.removeChild(optionButtonsElement.firstChild);
@@ -109,6 +112,25 @@ textNodes = [{
     options: [{
         text: 'Restart',
         nextText: 1
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: 'You climb out of the window.\nAnd fall from the tower.\nYou are dead.',
+    options: [{
+        text: 'Hang up',
+        nextText: 5
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: '',
+    sound: 'sounds/dialtone.mp3',
+    options: [{
+        text: 'Restart',
+        nextText: 5
       }
     ]
   }
