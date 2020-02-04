@@ -118,7 +118,7 @@ textNodes = [{
   {
     id: 5,
     text: '',
-    sound: 'dialtone',
+    sound: dialtone,
     options: [{
         text: 'Restart',
         nextText: 1
