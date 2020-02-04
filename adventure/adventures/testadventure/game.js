@@ -3,13 +3,13 @@ const optionButtonsElement = document.getElementById('option-buttons');
 const textInputElement = document.getElementById('text-input');
 
 let state = {};
-userName = 'Default';
+
+var dialtone = new Audio('sounds/dialtone.mp3');
 
 function startGame() {
   state = {};
   showTextNode(1);
 }
-
 
 function askName() {
   textElement.innerText = 'Welcome to AdventureWeb. My name is EagleFoot and I\'ll be your guide on your quest. What is your name traveller?';
@@ -30,7 +30,7 @@ function submitName() {
 function showTextNode(textNodeIndex) {
   const textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
   if (textNode.sound) {
-    alert('Playing sound');
+    textNode.sound.play();
   }
   textElement.innerText = textNode.text;
   while (optionButtonsElement.firstChild) {
@@ -117,7 +117,7 @@ textNodes = [{
   {
     id: 5,
     text: '',
-    sound: 'sounds/dialtone.mp3',
+    sound: 'dialtone',
     options: [{
         text: 'Restart',
         nextText: 1
