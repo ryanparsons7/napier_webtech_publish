@@ -24,8 +24,7 @@ function submitName() {
     textInputElement.removeChild(textInputElement.firstChild);
   }
   textNodes[0].text = 'Greetings ' + userName + ', are you ready to begin your quest?';
-  textNodes[8].text = userName + ', erm, traveller. I\'ve been instructed that
-                                  this is outside my realm of influence. But if you stay on the line, one of our elves will...'
+  textNodes[8].text = userName + ', erm, traveller. I\'ve been instructed that this is outside my realm of influence. But if you stay on the line, one of our elves will...'
   startGame();
 }
 
@@ -148,11 +147,7 @@ textNodes = [{
     text: 'On Varagon\'s Web. Yes, I remember.',
     options: [{
         text:
-        'Right, well, you\'ll remember telling him now that was worth 50 quid
-        and you told him to stay on the line. Now the woman who took his
-        details, said she\'d have the cheque out nae later than 28 days, but
-        that\'s been ower two months noo and there\'s been nae sign of a
-        cheque and i\'ve been phoining and phoning...',
+        'Right, well, you\'ll remember telling him now that was worth 50 quid and you told him to stay on the line. Now the woman who took his details, said she\'d have the cheque out nae later than 28 days, but that\'s been ower two months noo and there\'s been nae sign of a cheque and i\'ve been phoining and phoning...',
         nextText: 8
       }
     ]
