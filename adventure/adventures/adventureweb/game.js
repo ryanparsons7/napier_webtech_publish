@@ -24,6 +24,8 @@ function submitName() {
     textInputElement.removeChild(textInputElement.firstChild);
   }
   textNodes[0].text = 'Greetings ' + userName + ', are you ready to begin your quest?';
+  textNodes[8].text = userName + ', erm, traveller. I\'ve been instructed that
+                                  this is outside my realm of influence. But if you stay on the line, one of our elves will...'
   startGame();
 }
 
@@ -99,7 +101,7 @@ textNodes = [{
       },
       {
         text: 'Right, noo, what it is. I want tae know when youse are gien ma son his money.',
-        nextText: 3
+        nextText: 6
       }
     ]
   },
@@ -129,6 +131,39 @@ textNodes = [{
     options: [{
         text: 'Restart',
         nextText: 1
+      }
+    ]
+  },
+  {
+    id: 6,
+    text: 'I do not understand your enquiry traveller.',
+    options: [{
+        text: 'My son phoned your show ower two months ago and he found a black ruby on a web and he was...',
+        nextText: 7
+      }
+    ]
+  },
+  {
+    id: 7,
+    text: 'On Varagon\'s Web. Yes, I remember.',
+    options: [{
+        text:
+        'Right, well, you\'ll remember telling him now that was worth 50 quid
+        and you told him to stay on the line. Now the woman who took his
+        details, said she\'d have the cheque out nae later than 28 days, but
+        that\'s been ower two months noo and there\'s been nae sign of a
+        cheque and i\'ve been phoining and phoning...',
+        nextText: 8
+      }
+    ]
+  },
+  {
+    id: 8,
+    text: '',
+    options: [{
+        text:
+        'No, they\'ll just ask me to get in touch with head office, and i\'ve done that, and they\'re no getting back to me. I want you to sort this oot.',
+        nextText: 9
       }
     ]
   }
