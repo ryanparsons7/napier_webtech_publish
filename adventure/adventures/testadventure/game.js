@@ -30,7 +30,8 @@ function submitName() {
 function showTextNode(textNodeIndex) {
   const textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
   if (textNode.sound) {
-    textNode.sound.play();
+    sound = textNode.sound;
+    sound.play();
   }
   textElement.innerText = textNode.text;
   while (optionButtonsElement.firstChild) {
