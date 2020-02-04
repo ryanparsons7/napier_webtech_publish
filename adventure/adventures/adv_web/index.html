@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF -8" />
+  <!--Page Title-->
+  <title>Choose your own adventure - AdventureWeb</title>
+  <!--Import Stylesheet for Orbitron Font-->
+  <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+  <!--Import adventure stylesheet-->
+  <link rel="stylesheet" type="text/css" href="/napier_webtech_publish/adventure/styles.css">
+  <!--Set favicon-->
+  <link rel="icon" href="/napier_webtech_publish/adventure/images/favicon.ico" sizes="256x256" type="image/ico">
+  <!--Set JQuery script needed for include-->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+  </script>
+  <!--Set tags to include header and footer html files-->
+  <script>
+    $(function() {
+      $("#header").load("/napier_webtech_publish/adventure/header.html");
+      $("#footer").load("/napier_webtech_publish/adventure/footer.html");
+    });
+  </script>
+  <!--Set game javascript file-->
+  <script defer src="adv_game.js"></script>
+</head>
+
+<body>
+  <!--Include header-->
+  <div id="header"></div>
+  <section>
+    <div class="box_container">
+      <div class="adv_container">
+        <div id="text">Text</div>
+        <img id="adv_image" src="">
+        <div id="text-input" class="text-input-class">
+          <input type="text" id="nameInput" value="">
+          <button onclick="submitName()" class="adv_btn_name" id="submitNameButton">Submit</button>
+        </div>
+        <div id="option-buttons" class="adv_btn_container">
+          <button class="adv_btn">Choice 1</button>
+          <button class="adv_btn">Choice 2</button>
+          <button class="adv_btn">Choice 3</button>
+          <button class="adv_btn">Choice 4</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="footer"></div>
+</body>
+
+</html>
