@@ -79,6 +79,7 @@ nav {
   max-width: 80%;
   background-color: white;
   text-align: center;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .adv_btn-grid {
@@ -102,6 +103,7 @@ nav {
   padding: 8px 8px;
   color: white;
   outline: none;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .adv_btn:hover {
