@@ -33,6 +33,10 @@ function showTextNode(textNodeIndex) {
     sound = textNode.sound;
     sound.play();
   }
+  if (textNode.image) {
+    image = textNode.image;
+    document.getElementById('adv_image').src=image;
+  }
   textElement.innerText = textNode.text;
   while (optionButtonsElement.firstChild) {
     optionButtonsElement.removeChild(optionButtonsElement.firstChild);
@@ -119,6 +123,7 @@ textNodes = [{
     id: 5,
     text: '',
     sound: dialtone,
+    image: 'images/limmy_hangup.gif',
     options: [{
         text: 'Restart',
         nextText: 1
