@@ -84,20 +84,10 @@ textNodes = [{
     text: 'You awake in a castle tower.\nThere is a window.\nOn the floor is a rug',
     options: [{
         text: 'Jump out of window',
-        requiredState: (currentState) => currentState.blueGoo,
-        setState: {
-          blueGoo: false,
-          sword: true
-        },
-        nextText: 3
+        nextText: 4
       },
       {
         text: 'Look under the rug',
-        requiredState: (currentState) => currentState.blueGoo,
-        setState: {
-          blueGoo: false,
-          shield: true
-        },
         nextText: 3
       },
       {
@@ -130,7 +120,7 @@ textNodes = [{
     sound: 'sounds/dialtone.mp3',
     options: [{
         text: 'Restart',
-        nextText: 5
+        nextText: 1
       }
     ]
   }
