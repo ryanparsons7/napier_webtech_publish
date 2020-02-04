@@ -24,7 +24,7 @@ function submitName() {
     textInputElement.removeChild(textInputElement.firstChild);
   }
   textNodes[0].text = 'Greetings ' + userName + ', are you ready to begin your quest?';
-  textNodes[8].text = userName + ', erm, traveller. I\'ve been instructed that this is outside my realm of influence. But if you stay on the line, one of our elves will...'
+  textNodes[7].text = userName + ', erm, traveller. I\'ve been instructed that this is outside my realm of influence. But if you stay on the line, one of our elves will...';
   startGame();
 }
 
