@@ -36,6 +36,8 @@ function showTextNode(textNodeIndex) {
   if (textNode.image) {
     image = textNode.image;
     document.getElementById('adv_image').src=image;
+  } else {
+    document.getElementById('adv_image').src='';
   }
   textElement.innerText = textNode.text;
   while (optionButtonsElement.firstChild) {
