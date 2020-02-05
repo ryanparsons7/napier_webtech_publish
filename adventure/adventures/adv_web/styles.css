@@ -4,20 +4,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 500px;
+  height: auto;
   background-color: #FFFFFF;
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/a/ae/Castle_Neuschwanstein.jpg");
-  background-size: 100%;
+  background-image: url("images/backgrounds/castle_background.jpg");
+  background-position: center;
+  padding: 50px 0px 50px;
 }
 
 .content_container {
-  width: 650px;
-  background-color: rgba(75, 71, 163, 0.5);
-  border: 2px solid blue;
+  width: 800px;
+  background-color: rgba(80, 80, 80, 0.7);
+  border: 2px solid black;
   border-radius: 10px;
   font-family: 'Orbitron', sans-serif;
   text-align: center;
-  font-weight: bold;
+  font-size: 20px;
   color: white;
   text-shadow: 0px 0px 5px black;
 }
@@ -34,14 +35,13 @@
 .text-input-class {
   width: 25%;
   margin: 0 auto;
-  padding-top: 10px;
-  padding-bottom: 25px;
+  padding: 0 0 10px;
 }
 
 /* Make button background black when hovered upon */
 .buttonClass, .name_button {
-  background-color: #4B46B2;
-  border: 1px solid #000000;
+  background-color: rgba(80, 80, 80, 0.7);
+  border: 1px solid black;
   border-radius: 3px;
   padding: 8px 8px;
   color: white;
@@ -55,5 +55,5 @@
 }
 
 #text {
-  padding: 25px 25px 25px 25px;
+  padding: 10px;
 }
