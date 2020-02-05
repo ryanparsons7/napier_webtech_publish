@@ -7,8 +7,10 @@
   <title>Choose your own adventure - AdventureWeb</title>
   <!--Import Stylesheet for Orbitron Font-->
   <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
-  <!--Import adventure stylesheet-->
+  <!--Import global stylesheet-->
   <link rel="stylesheet" type="text/css" href="/napier_webtech_publish/adventure/styles.css">
+  <!--Import adventure stylesheet-->
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <!--Set favicon-->
   <link rel="icon" href="/napier_webtech_publish/adventure/images/favicon.ico" sizes="256x256" type="image/ico">
   <!--Set JQuery script needed for include-->
@@ -29,19 +31,18 @@
   <!--Include header-->
   <div id="header"></div>
   <section>
-    <div class="box_container">
-      <div class="adv_container">
+    <div class="character_container">
+    </div>
+    <div class="base_container">
+      <div class="content_container">
         <div id="text">Text</div>
-        <img id="adv_image" src="">
+        <img id="adventure_image" src="images/limmy_hangup.gif">
         <div id="text-input" class="text-input-class">
           <input type="text" id="nameInput" value="">
-          <button onclick="submitName()" class="adv_btn_name" id="submitNameButton">Submit</button>
+          <button onclick="submitName()" class="name_button" id="submitNameButton">Submit</button>
         </div>
-        <div id="option-buttons" class="adv_btn_container">
-          <button class="adv_btn">Choice 1</button>
-          <button class="adv_btn">Choice 2</button>
-          <button class="adv_btn">Choice 3</button>
-          <button class="adv_btn">Choice 4</button>
+        <div id="option-buttons" class="button_container">
+          <!--Buttons get added here in js-->
         </div>
       </div>
     </div>

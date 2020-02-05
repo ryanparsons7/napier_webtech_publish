@@ -1,10 +1,6 @@
-h1 {
-  font-family: 'Orbitron', sans-serif;
-}
-
-nav {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 16px
+/* Use Orbitron for H1 and Navigation */
+h1, nav {
+  font-family: 'univia-pro', sans-serif;
 }
 
 /* The navigation menu */
@@ -58,9 +54,8 @@ nav {
 
 /* Style the subnav links */
 .subnav-content a {
-  float: left;
+  text-align: left;
   color: white;
-  text-decoration: none;
 }
 
 /* Add a grey background color on hover */
@@ -71,7 +66,7 @@ nav {
 
 /* When you move the mouse over the subnav container, open the subnav content */
 .subnav:hover .subnav-content {
-  display: block;
+  display: grid;
 }
 
 .adv_container {
