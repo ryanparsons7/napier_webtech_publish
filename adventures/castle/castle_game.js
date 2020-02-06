@@ -11,7 +11,7 @@ function main() {
   // Hide the choice container as it's not needed yet.
   choice_container.style.display = "none";
 
-  text_element.innerText = 'Welcome to AdventureWeb.\nMy name is EagleFoot and I\'ll be your guide on your quest.\nWhat is your name traveller?'
+  text_element.innerText = 'Welcome to the Castle Adventure.\nMy name is EagleFoot and I\'ll be your guide on your quest.\nWhat is your name traveller?'
 
 }
 
