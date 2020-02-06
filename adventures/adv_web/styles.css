@@ -47,6 +47,7 @@
   color: white;
   font-family: 'Orbitron', sans-serif;
   margin: 0 auto;
+  cursor:pointer;
 }
 
 /* Make button background black when hovered upon */
@@ -56,4 +57,8 @@
 
 #text {
   padding: 10px;
+}
+
+#adventure_image {
+  height: 250px;
 }

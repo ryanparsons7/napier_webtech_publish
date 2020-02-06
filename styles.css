@@ -1,12 +1,13 @@
 /* Use Orbitron for H1 and Navigation */
 h1, nav {
-  font-family: 'univia-pro', sans-serif;
+  font-family: 'Orbitron', sans-serif;
 }
 
 /* The navigation menu */
 .navbar {
   overflow: hidden;
   background-color: #333;
+  font-family: 'Orbitron', sans-serif;
 }
 
 /* Navigation links */
