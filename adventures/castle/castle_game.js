@@ -6,13 +6,13 @@ var textInputElement = document.getElementById("text-input");
 var story = [];
 var userName;
 
-// Initialize main function
-function main() {
-  // Hide the choice container as it's not needed yet.
-  choice_container.style.display = "none";
 
-  text_element.innerText = 'Welcome to the Castle Adventure.\nMy name is EagleFoot and I\'ll be your guide on your quest.\nWhat is your name traveller?'
-
+function validateInput(input) {
+  if (input == "") {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 // Initialize updateGame function.
@@ -33,8 +33,11 @@ function updateGame(id) {
 }
 
 // Initialize startGame function.
-function startGame(name) {
-  submitName(name);
+function startGame() {
+  if (!submitName()) {
+    alert('Enter a name');
+    return;
+  }
   choice_container.style.display = "grid";
   updateGame(1);
 }
@@ -44,18 +47,22 @@ function submitName() {
   // Name submitted gets placed into a variable.
   userName = document.getElementById("nameInput").value;
 
-  // Hide the text entry container as it's not needed anymore.
-  textInputElement.style.display = "none";
+  if (validateInput(userName)) {
+    // Hide the text entry container as it's not needed anymore.
+    textInputElement.style.display = "none";
 
-  // Call setStory function to set the story strings to use the appropriate name.
-  setStory(userName);
+    // Call setStory function to set the story strings to use the appropriate name.
+    setStory(userName);
+
+    return true;
+  }
+
 }
 
 // Initialize setStory function, takes in a name string
 function setStory(name) {
   // Define story variable with appropriate name of user
-  story = [
-    {
+  story = [{
       id: 1,
       text: 'Hello ' + name + ', how are you?',
       options: [
@@ -100,6 +107,3 @@ function createButton(buttonText, nextId) {
   // Append the new button to the choice container as a child.
   choice_container.appendChild(button);
 }
-
-// Call main function
-main();

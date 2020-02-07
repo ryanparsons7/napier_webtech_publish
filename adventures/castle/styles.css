@@ -55,6 +55,11 @@
   background-color: #000000;
 }
 
+/* Make the choice container initially hidden */
+.choice_container {
+  display: none;
+}
+
 #text {
   padding: 10px;
 }
