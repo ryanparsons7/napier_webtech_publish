@@ -67,6 +67,23 @@ function submitName() {
 
 }
 
+// Initialize createButton function, takes in the button options.
+function createButton(buttonText, nextId) {
+  // Create variable "button", to create an element of button.
+  const button = document.createElement('button');
+
+  // Set the button's text to inputted string.
+  button.innerText = buttonText;
+
+  // Add the buttonClass to the button's class list.
+  button.classList.add('buttonClass');
+
+  button.addEventListener('click', () => updateGame(nextId))
+
+  // Append the new button to the choice container as a child.
+  choice_container.appendChild(button);
+}
+
 // Initialize setStory function, takes in a name string
 function setStory(name) {
   // Define story variable with appropriate name of user in required strings
@@ -124,21 +141,4 @@ function setStory(name) {
       ]
     }
   ]
-}
-
-// Initialize createButton function, takes in the button options.
-function createButton(buttonText, nextId) {
-  // Create variable "button", to create an element of button.
-  const button = document.createElement('button');
-
-  // Set the button's text to inputted string.
-  button.innerText = buttonText;
-
-  // Add the buttonClass to the button's class list.
-  button.classList.add('buttonClass');
-
-  button.addEventListener('click', () => updateGame(nextId))
-
-  // Append the new button to the choice container as a child.
-  choice_container.appendChild(button);
 }
