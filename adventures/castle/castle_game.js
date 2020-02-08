@@ -3,10 +3,18 @@ var text_element = document.getElementById('text');
 var choice_container = document.getElementById("option-buttons");
 var adventure_image = document.getElementById("adventure_image");
 var textInputElement = document.getElementById("text-input");
+
+// Define empty story var to be populated once user gives their name
 var story = [];
+
+// Define empty username to be populated once user gives their name
 var userName;
 
+// Define empty inventory array that will store items the character has.
+var inventory = [];
 
+
+// Initialize validateInput function that checks if a string input contains a value
 function validateInput(input) {
   if (input == "") {
     return false;
@@ -25,7 +33,7 @@ function updateGame(id) {
   const options = storyNode['options'];
   text_element.innerText = nodeText;
   options.forEach((item, i) => {
-    createButton(item[0], item[1])
+    createButton(item['text'], item['nextid'])
   });
   if (storyNode['image']) {
     adventure_image.src = storyNode['image'];
@@ -61,31 +69,58 @@ function submitName() {
 
 // Initialize setStory function, takes in a name string
 function setStory(name) {
-  // Define story variable with appropriate name of user
+  // Define story variable with appropriate name of user in required strings
   story = [{
       id: 1,
-      text: 'Hello ' + name + ', how are you?',
-      options: [
-        ['I am doing fine', 3],
-        ['I am doing terrible', 2]
+      text: 'You are inside a small dungeon cell.\nThere is a closed cell door, a bed and bar window.',
+      options: [{
+          text: 'Look out the window.',
+          nextid: 3
+        },
+        {
+          text: 'Check under the bed.',
+          nextid: 4
+        },
+        {
+          text: 'Try to open the cell door.',
+          nextid: 2
+        }
       ]
     },
     {
       id: 2,
-      text: 'Well that sucks bro',
-      image: "images/nodes/sad.png",
-      options: [
-        ['I am doing fine', 3],
-        ['I am doing terrible', 2]
+      text: 'You attempt to open the cell door,\nthe door creates a metal clanking sound.\nIt is locked shut.\nYou suddenly hear a person approaching.',
+      options: [{
+          text: 'Hide under the bed.',
+          nextid: 7
+        },
+        {
+          text: 'Lure the person to the cell door.',
+          nextid: 5
+        }
       ]
     },
     {
       id: 3,
-      text: 'That\'s great, now go away',
-      image: 'images/nodes/happy.png',
-      options: [
-        ['I am doing fine', 3],
-        ['I am doing terrible', 2]
+      text: 'It is dark and very cold outside, not a light to be seen.',
+      options: [{
+          text: 'Come away from the window',
+          nextid: 1
+        }
+      ]
+    },
+    {
+      id: 4,
+      text: 'You find a broken piece of glass.',
+      options: [{
+          text: 'Pick up piece of glass.',
+          inventory_add: 'glass',
+          nextid: 1
+        },
+        {
+          text: 'Leave the piece of glass.',
+          nextid: 1
+        }
       ]
     }
   ]
