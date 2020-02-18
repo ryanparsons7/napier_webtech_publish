@@ -51,7 +51,7 @@
 }
 
 /* Make button background black when hovered upon */
-.button:hover, .name_button:hover {
+.buttonClass:hover, .name_button:hover {
   background-color: #000000;
 }
 
