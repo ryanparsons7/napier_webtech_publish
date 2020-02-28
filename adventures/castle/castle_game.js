@@ -41,6 +41,12 @@ function updateGame(id) {
   if (storyNode['image']) {
     adventure_image.src = storyNode['image'];
   }
+  if (storyNode['inventory_add']) {
+    inventory.push(storyNode['inventory_add']);
+  }
+  if (storyNode['inventory_remove']) {
+    inventory = inventory.filter(e => e !== storyNode['inventory_remove']);
+  }
 }
 
 // Initialize startGame function.
