@@ -25,6 +25,7 @@ function validateInput(input) {
 
 // Initialize updateGame function.
 function updateGame(id, add_inv, rem_inv) {
+  const storyNode = story.find(node => node.id === id);
   if (id === 1) {
     inventory = [];
   }
@@ -41,10 +42,9 @@ function updateGame(id, add_inv, rem_inv) {
   while (choice_container.firstChild) {
     choice_container.removeChild(choice_container.firstChild);
   }
-  const storyNode = story.find(node => node.id === id);
   const nodeText = storyNode['text'];
-  const options = getOptions(storyNode);
   text_element.innerText = nodeText;
+  const options = getOptions(storyNode);
   options.forEach((item, i) => {
     createButton(item['text'], item['nextid'], item['inventory_add', item['inventory_remove']])
   });
