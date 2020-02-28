@@ -100,16 +100,17 @@ function setStory(name) {
       id: 1,
       text: 'You are inside a small dungeon cell.\nThere is a closed cell door, a bed and bar window.',
       options: [{
-          text: 'Look out the window.',
+          text: 'Try to open the cell door.',
+          nextid: 2
+        },
+        {
+          text: 'Look out of the window.',
           nextid: 3
         },
         {
           text: 'Check under the bed.',
+          notInInventory: 'glass_shard',
           nextid: 4
-        },
-        {
-          text: 'Try to open the cell door.',
-          nextid: 2
         }
       ]
     },
@@ -130,17 +131,16 @@ function setStory(name) {
       id: 3,
       text: 'It is dark and very cold outside, not a light to be seen.',
       options: [{
-          text: 'Come away from the window',
-          nextid: 1
-        }
-      ]
+        text: 'Come away from the window',
+        nextid: 1
+      }]
     },
     {
       id: 4,
       text: 'You find a broken piece of glass.',
       options: [{
           text: 'Pick up piece of glass.',
-          inventory_add: 'glass',
+          inventory_add: 'glass_shard',
           nextid: 1
         },
         {
@@ -148,6 +148,49 @@ function setStory(name) {
           nextid: 1
         }
       ]
+    },
+    {
+      id: 5,
+      text: 'You shout at the person approaching to lure them to the cell door.\nThey approach and it looks like a guard.\nThey yell at you: "Why are you trying to escape prisoner?"',
+      options: [{
+          text: 'Attempt to kill the guard through the bars with the glass shard.',
+          inInventory: 'glass_shard',
+          nextid: 6
+        },
+        {
+          text: 'Attempt to knock out the guard through the bars.',
+          nextid: 8
+        }
+      ]
+    },
+    {
+      id: 6,
+      text: 'You successfully killed the guard with the glass shard.\nThey have dropped to the floor in front of the cell door.',
+      options: [{
+        text: 'Take the key from the guard, unlock the door and leave the cell.',
+        nextid: 16
+      }]
+    },
+    {
+      id: 7,
+      text: 'You hide under the bed.\nThe person approaches and it looks like a dungeon guard.\nThey notice noone in the cell, unlock the cell door and enter the cell to look for you.',
+      options: [{
+          text: 'Come out from under the bed and attempt to knock out the guard',
+          nextid: 10
+        },
+        {
+          text: 'Crawl from under the bed and run for the cell door',
+          nextid: 9
+        }
+      ]
+    },
+    {
+      id: 8,
+      text: 'You attempt to knock out the guard through the bars.\nYour attempt fails and you get subdued by the guard.\nThe guard chains you to the wall for the rest of the night and you are executed in the morning.',
+      options: [{
+        text: 'Restart',
+        nextid: 1
+      }]
     }
   ]
 }
