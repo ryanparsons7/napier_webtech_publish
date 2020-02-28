@@ -25,6 +25,9 @@ function validateInput(input) {
 
 // Initialize updateGame function.
 function updateGame(id) {
+  if (id === 1) {
+    inventory = [];
+  }
   while (choice_container.firstChild) {
     choice_container.removeChild(choice_container.firstChild);
   }
