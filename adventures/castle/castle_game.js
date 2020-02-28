@@ -24,29 +24,36 @@ function validateInput(input) {
 }
 
 // Initialize updateGame function.
-function updateGame(id) {
+function updateGame(id, add_inv, rem_inv) {
   if (id === 1) {
     inventory = [];
   }
+  if (add_inv) {
+    inventory.push(add_inv);
+  }
+  if (rem_inv) {
+
+  }
+  if (storyNode['image']) {
+    adventure_image.src = storyNode['image'];
+  }
+  // Remove all option buttons
   while (choice_container.firstChild) {
     choice_container.removeChild(choice_container.firstChild);
   }
   const storyNode = story.find(node => node.id === id);
   const nodeText = storyNode['text'];
-  const options = storyNode['options'];
+  const options = getOptions(storyNode);
   text_element.innerText = nodeText;
   options.forEach((item, i) => {
-    createButton(item['text'], item['nextid'])
+    createButton(item['text'], item['nextid'], item['inventory_add', item['inventory_remove']])
   });
-  if (storyNode['image']) {
-    adventure_image.src = storyNode['image'];
-  }
-  if (storyNode['inventory_add']) {
-    inventory.push(storyNode['inventory_add']);
-  }
-  if (storyNode['inventory_remove']) {
-    inventory = inventory.filter(e => e !== storyNode['inventory_remove']);
-  }
+}
+
+// Initialize get options function.
+function getOptions(storyNode) {
+  var nodeOptions = storyNode['options'];
+
 }
 
 // Initialize startGame function.
@@ -77,7 +84,7 @@ function submitName() {
 }
 
 // Initialize createButton function, takes in the button options.
-function createButton(buttonText, nextId) {
+function createButton(buttonText, nextId, add_inv, rem_inv) {
   // Create variable "button", to create an element of button.
   const button = document.createElement('button');
 
@@ -87,7 +94,7 @@ function createButton(buttonText, nextId) {
   // Add the buttonClass to the button's class list.
   button.classList.add('buttonClass');
 
-  button.addEventListener('click', () => updateGame(nextId))
+  button.addEventListener('click', () => updateGame(nextId, add_inv, rem_inv))
 
   // Append the new button to the choice container as a child.
   choice_container.appendChild(button);
