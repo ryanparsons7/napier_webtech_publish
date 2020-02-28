@@ -53,7 +53,7 @@ function updateGame(id, add_inv, rem_inv) {
 // Initialize get options function.
 function getOptions(storyNode) {
   var nodeOptions = storyNode['options'];
-
+  return nodeOptions;
 }
 
 // Initialize startGame function.
