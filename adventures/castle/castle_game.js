@@ -23,20 +23,33 @@ function validateInput(input) {
   }
 }
 
+// Initialize rem_from_array function.
+function rem_from_array(array, item) {
+  var index_item = array.indexOf(item);
+
+  while (index_item !== -1) {
+    array.splice(index_item, 1);
+    index_item = array.indexOf(item);
+  }
+}
+
 // Initialize updateGame function.
 function updateGame(id, add_inv, rem_inv) {
   const storyNode = story.find(node => node.id === id);
-  if (id === 1) {
+  if (id === 0) {
     inventory = [];
   }
   if (add_inv) {
     inventory.push(add_inv);
   }
   if (rem_inv) {
-
+    rem_from_array(inventory, rem_inv)
   }
   if (storyNode['image']) {
     adventure_image.src = storyNode['image'];
+  }
+  if (storyNode['sound']) {
+    // Play sound
   }
   // Remove all option buttons
   while (choice_container.firstChild) {
@@ -45,10 +58,27 @@ function updateGame(id, add_inv, rem_inv) {
   const nodeText = storyNode['text'];
   text_element.innerText = nodeText;
   const options = getOptions(storyNode);
-  options.forEach((item, i) => {
-    createButton(item['text'], item['nextid'], item['inventory_add', item['inventory_remove']])
-  });
-}
+  console.log(options)
+  for (var i = 0; i < options.length; i++) {
+    if (options[i]['inInventory']) {
+      if (inventory.includes(options[i]['inInventory'])) {
+        console.log('in inventory pass');
+        createButton(options[i]['text'], options[i]['nextid'], options[i]['inventory_add'], options[i]['inventory_remove']);
+        continue;
+      }
+      continue;
+    }
+    if (options[i]['notInInventory']) {
+      if (!(inventory.includes(options[i]['notInInventory']))) {
+        console.log('not in inventory pass');
+        createButton(options[i]['text'], options[i]['nextid'], options[i]['inventory_add'], options[i]['inventory_remove']);
+        continue;
+      }
+      continue;
+    }
+    createButton(options[i]['text'], options[i]['nextid'], options[i]['inventory_add'], options[i]['inventory_remove']);
+  }
+};
 
 // Initialize get options function.
 function getOptions(storyNode) {
@@ -63,7 +93,7 @@ function startGame() {
     return;
   }
   choice_container.style.display = "grid";
-  updateGame(1);
+  updateGame(0);
 }
 
 // Initialize submitName function, gets called when user presses submit.
@@ -96,6 +126,7 @@ function createButton(buttonText, nextId, add_inv, rem_inv) {
 
   button.addEventListener('click', () => updateGame(nextId, add_inv, rem_inv))
 
+
   // Append the new button to the choice container as a child.
   choice_container.appendChild(button);
 }
@@ -104,6 +135,14 @@ function createButton(buttonText, nextId, add_inv, rem_inv) {
 function setStory(name) {
   // Define story variable with appropriate name of user in required strings
   story = [{
+      id: 0,
+      text: 'You are laying face first on a stone floor.',
+      options: [{
+        text: 'Get up',
+        nextid: 1
+      }]
+    },
+    {
       id: 1,
       text: 'You are inside a small dungeon cell.\nThere is a closed cell door, a bed and bar window.',
       options: [{
@@ -116,8 +155,8 @@ function setStory(name) {
         },
         {
           text: 'Check under the bed.',
-          notInInventory: 'glass_shard',
-          nextid: 4
+          nextid: 4,
+          notInInventory: 'glass_shard'
         }
       ]
     },
@@ -147,8 +186,8 @@ function setStory(name) {
       text: 'You find a broken piece of glass.',
       options: [{
           text: 'Pick up piece of glass.',
-          inventory_add: 'glass_shard',
-          nextid: 1
+          nextid: 1,
+          inventory_add: 'glass_shard'
         },
         {
           text: 'Leave the piece of glass.',
@@ -196,7 +235,7 @@ function setStory(name) {
       text: 'You attempt to knock out the guard through the bars.\nYour attempt fails and you get subdued by the guard.\nThe guard chains you to the wall for the rest of the night and you are executed in the morning.',
       options: [{
         text: 'Restart',
-        nextid: 1
+        nextid: 0
       }]
     },
     {
@@ -204,7 +243,7 @@ function setStory(name) {
       text: 'You attempt to run for the cell door, but the guard\'s great perception makes him aware of you as soona as you crawl from under the bed. Your attempt fails and you get subdued by the guard. The guard chains you to the wall for the rest of the night and you are executed in the morning.',
       options: [{
         text: 'Restart',
-        nextid: 1
+        nextid: 0
       }]
     },
     {
@@ -215,12 +254,14 @@ function setStory(name) {
           nextid: 20
         },
         {
-          text: 'Fight (With Glass Shard)',
-          nextid: 12
+          text: 'Fight',
+          nextid: 12,
+          inInventory: 'glass_shard'
         },
         {
           text: 'Fight',
-          nextid: 11
+          nextid: 11,
+          notInInventory: 'glass_shard'
         }
       ]
     },
@@ -229,7 +270,7 @@ function setStory(name) {
       text: 'You attempt to fight the guard with your bare fists. You get cut down with the guard\'s sword almost immediately.',
       options: [{
         text: 'Restart',
-        nextid: 1
+        nextid: 0
       }]
     },
     {
@@ -250,7 +291,7 @@ function setStory(name) {
       text: 'You slash at the guard with the glass shard. The glass shard breaks when hitting the guard\'s armour, the guard then strikes you down with his sword',
       options: [{
         text: 'Restart',
-        nextid: 13
+        nextid: 0
       }]
     },
     {
@@ -317,7 +358,7 @@ function setStory(name) {
       text: 'You surrender to the guard. The guard chains you to the wall for the rest of the night and you are executed in the morning',
       options: [{
         text: 'Restart',
-        nextid: 1
+        nextid: 0
       }]
     },
     {
@@ -375,7 +416,7 @@ function setStory(name) {
       text: 'You successfully escape the castle grounds and live happily ever after.',
       options: [{
         text: 'Restart',
-        nextid: 1
+        nextid: 0
       }]
     },
     {
@@ -386,7 +427,7 @@ function setStory(name) {
           nextid: 21
         },
         {
-          text: 'Open the door and leave the room',
+          text: 'Open the door and enter',
           nextid: 27
         }
       ]
@@ -404,7 +445,7 @@ function setStory(name) {
         },
         {
           text: 'Go through the door',
-          nextid: 268531
+          nextid: 26
         }
       ]
     },
@@ -475,7 +516,7 @@ function setStory(name) {
       text: 'You venture in into the dark passage with no light source. You suddenly get jumped by an unknown monster. You quickly die.',
       options: [{
         text: 'Restart',
-        nextid: 1
+        nextid: 0
       }]
     },
     {
@@ -517,7 +558,7 @@ function setStory(name) {
       text: 'You approach the shiny object. Due to your noisey movements, the dragon awakens and you get killed in a burst of fire.',
       options: [{
         text: 'Restart',
-        nextid: 1
+        nextid: 0
       }]
     },
     {
@@ -533,7 +574,7 @@ function setStory(name) {
       text: 'You attack the dragon with your bear fists and get incinerated in a gust of fire.',
       options: [{
         text: 'Restart',
-        nextid: 1
+        nextid: 0
       }]
     },
     {
