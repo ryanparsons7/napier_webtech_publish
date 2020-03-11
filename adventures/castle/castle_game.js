@@ -211,7 +211,7 @@ function setStory(name) {
     },
     {
       id: 6,
-      text: 'You successfully killed the guard with the glass shard.\nThey have dropped to the floor in front of the cell door.',
+      text: 'You successfully killed the guard by throwing the glass shard at them.\nThey have dropped to the floor in front of the cell door.',
       options: [{
         text: 'Take the key from the guard, unlock the door and leave the cell.',
         nextid: 16
@@ -320,7 +320,8 @@ function setStory(name) {
       text: 'You are at the end of the hall, there is a hardwood door to your direct west and the hallway continues to the east.',
       options: [{
           text: 'Open the door with the guard key',
-          nextid: 19
+          nextid: 19,
+          inInventory: 'guardKey'
         },
         {
           text: 'Open the door',
@@ -386,8 +387,9 @@ function setStory(name) {
           nextid: 21
         },
         {
-          text: 'Open the door with the key',
-          nextid: 24
+          text: 'Open the door with the castle key',
+          nextid: 24,
+          inInventory: 'castleKey'
         },
         {
           text: 'Open the door',
@@ -405,7 +407,7 @@ function setStory(name) {
     },
     {
       id: 24,
-      text: 'You unlock the door with the dungeon key. You open the door and see the outside world.',
+      text: 'You unlock the door with the castle key. You open the door and see the outside world.',
       options: [{
         text: 'Run away',
         nextid: 25
@@ -441,7 +443,8 @@ function setStory(name) {
         },
         {
           text: 'Check inside the wooden box',
-          nextid: 29
+          nextid: 29,
+          notInInventory: 'guardKey'
         },
         {
           text: 'Go through the door',
@@ -459,10 +462,11 @@ function setStory(name) {
     },
     {
       id: 29,
-      text: 'You open the wooden box to find a Steel Sword',
+      text: 'You open the wooden box to find a Steel Sword and a Key',
       options: [{
-        text: 'Take Steel Sword and close the box',
-        nextid: 27
+        text: 'Take Steel Sword and the Key.',
+        nextid: 27,
+        inventory_add: ['guardKey','sword']
       }]
     },
     {
@@ -474,7 +478,8 @@ function setStory(name) {
         },
         {
           text: 'Take Torch',
-          nextid: 31
+          nextid: 31,
+          notInInventory: 'torch'
         },
         {
           text: 'Head North',
@@ -487,7 +492,8 @@ function setStory(name) {
       text: 'You take one of the torches off the wall.',
       options: [{
         text: 'Come away from the wall',
-        nextid: 30
+        nextid: 30,
+        inventory_add: 'torch'
       }]
     },
     {
@@ -503,7 +509,8 @@ function setStory(name) {
         },
         {
           text: 'Go East with the lit torch',
-          nextid: 36
+          nextid: 36,
+          inInventory: 'torch'
         },
         {
           text: 'Go West',
@@ -528,7 +535,8 @@ function setStory(name) {
         },
         {
           text: 'Open the boxes',
-          nextid: 35
+          nextid: 35,
+          notInInventory: 'potion'
         }
       ]
     },
@@ -537,7 +545,8 @@ function setStory(name) {
       text: 'You open the various boxes in the room and come across a potion. It reads on the label: "Light-Foot Potion"',
       options: [{
         text: 'Take the potion',
-        nextid: 34
+        nextid: 34,
+        inventory_add: 'potion'
       }]
     },
     {
@@ -566,7 +575,8 @@ function setStory(name) {
       text: 'To make your movements quiet, you take the potion and move quietly to the shiny object on the pile of Skeletons. You notice the shiny object is a key, possibly for the entire castle.',
       options: [{
         text: 'Pick up the key',
-        nextid: 43
+        nextid: 43,
+        inventory_add: 'castleKey'
       }]
     },
     {
@@ -594,15 +604,19 @@ function setStory(name) {
         },
         {
           text: 'Attack the dragon your sword',
-          nextid: 40
+          nextid: 40,
+          inInventory: 'sword'
         },
         {
           text: 'Investigate the shiny item',
-          nextid: 37
+          nextid: 37,
+          notInInventory: ['potion','castlekey']
         },
         {
           text: 'Take the potion and investigate the shiny item',
-          nextid: 38
+          nextid: 38,
+          inInventory: 'potion',
+          notInInventory: 'castleKey'
         }
       ]
     },
@@ -615,7 +629,8 @@ function setStory(name) {
         },
         {
           text: 'Investigate the shiny item',
-          nextid: 45
+          nextid: 45,
+          notInInventory: 'castleKey'
         }
       ]
     },
@@ -640,7 +655,8 @@ function setStory(name) {
       text: 'You move to the shiny object on the pile of Skeletons. You notice the shiny object is a key, possibly for the entire castle.',
       options: [{
         text: 'Collect the key',
-        nextid: 44
+        nextid: 44,
+        inventory_add: 'castleKey'
       }]
     }
   ]
