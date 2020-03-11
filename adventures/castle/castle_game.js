@@ -24,13 +24,15 @@ function validateInput(input) {
 }
 
 // Initialize rem_from_array function.
-function rem_from_array(array, item) {
-  var index_item = array.indexOf(item);
+function rem_array_from_array(array1, array2) {
+  array1 = array1.filter(function(item) {
+    return !array2.includes(item); 
+  })
+}
 
-  while (index_item !== -1) {
-    array.splice(index_item, 1);
-    index_item = array.indexOf(item);
-  }
+// Initialize merge_arrays function.
+function merge_arrays(array1, array2) {
+  return array1.concat(array2);
 }
 
 // Initialize updateGame function.
@@ -40,10 +42,10 @@ function updateGame(id, add_inv, rem_inv) {
     inventory = [];
   }
   if (add_inv) {
-    inventory.push(add_inv);
+    inventory = merge_arrays(inventory,add_inv)
   }
   if (rem_inv) {
-    rem_from_array(inventory, rem_inv)
+    inventory = rem_array_from_array(inventory, rem_inv)
   }
   if (storyNode['image']) {
     adventure_image.src = storyNode['image'];
@@ -58,11 +60,9 @@ function updateGame(id, add_inv, rem_inv) {
   const nodeText = storyNode['text'];
   text_element.innerText = nodeText;
   const options = getOptions(storyNode);
-  console.log(options)
   for (var i = 0; i < options.length; i++) {
     if (options[i]['inInventory']) {
       if (inventory.includes(options[i]['inInventory'])) {
-        console.log('in inventory pass');
         createButton(options[i]['text'], options[i]['nextid'], options[i]['inventory_add'], options[i]['inventory_remove']);
         continue;
       }
@@ -70,7 +70,6 @@ function updateGame(id, add_inv, rem_inv) {
     }
     if (options[i]['notInInventory']) {
       if (!(inventory.includes(options[i]['notInInventory']))) {
-        console.log('not in inventory pass');
         createButton(options[i]['text'], options[i]['nextid'], options[i]['inventory_add'], options[i]['inventory_remove']);
         continue;
       }
@@ -187,7 +186,7 @@ function setStory(name) {
       options: [{
           text: 'Pick up piece of glass.',
           nextid: 1,
-          inventory_add: 'glass_shard'
+          inventory_add: ['glass_shard']
         },
         {
           text: 'Leave the piece of glass.',
@@ -493,7 +492,7 @@ function setStory(name) {
       options: [{
         text: 'Come away from the wall',
         nextid: 30,
-        inventory_add: 'torch'
+        inventory_add: ['torch']
       }]
     },
     {
@@ -546,7 +545,7 @@ function setStory(name) {
       options: [{
         text: 'Take the potion',
         nextid: 34,
-        inventory_add: 'potion'
+        inventory_add: ['potion']
       }]
     },
     {
@@ -576,7 +575,7 @@ function setStory(name) {
       options: [{
         text: 'Pick up the key',
         nextid: 43,
-        inventory_add: 'castleKey'
+        inventory_add: ['castleKey']
       }]
     },
     {
@@ -656,7 +655,7 @@ function setStory(name) {
       options: [{
         text: 'Collect the key',
         nextid: 44,
-        inventory_add: 'castleKey'
+        inventory_add: ['castleKey']
       }]
     }
   ]
