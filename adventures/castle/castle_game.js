@@ -16,6 +16,9 @@ var inventory = [];
 // Play initial background music
 changeMusic('audio/Teller_of_the_Tales.mp3');
 
+// Hide the adventure image element initially, to prevent it taking up space between the elements
+adventure_image.style.display = 'none';
+
 // Initialize validateInput function that checks if a string input contains a value
 function validateInput(input) {
   if (input == "") {
@@ -37,48 +40,55 @@ function merge_arrays(array1, array2) {
   return array1.concat(array2);
 }
 
+// Initialize merge_arrays function.
+function play_sound(sound_effect) {
+  var x = document.getElementById("soundEffectPlayer");
+  x.src = sound_effect;
+  x.play();
+}
+
 // Initialize updateGame function.
-function updateGame(id, add_inv, rem_inv) {
+function updateGame(id, add_inv, rem_inv, snd_effect) {
   const storyNode = story.find(node => node.id === id);
   if (id === 0) {
     inventory = [];
-  }
+  };
   if (add_inv) {
     inventory = merge_arrays(inventory,add_inv)
-  }
+  };
   if (rem_inv) {
     inventory = rem_array_from_array(inventory, rem_inv)
-  }
+  };
   if (storyNode['image']) {
     adventure_image.src = storyNode['image'];
-  }
-  if (storyNode['sound']) {
-    // Play sound
-  }
+  };
+  if (snd_effect) {
+    play_sound(snd_effect);
+  };
   // Remove all option buttons
   while (choice_container.firstChild) {
     choice_container.removeChild(choice_container.firstChild);
-  }
+  };
   const nodeText = storyNode['text'];
   text_element.innerText = nodeText;
   const options = getOptions(storyNode);
   for (var i = 0; i < options.length; i++) {
     if (options[i]['inInventory']) {
       if (inventory.includes(options[i]['inInventory'])) {
-        createButton(options[i]['text'], options[i]['nextid'], options[i]['inventory_add'], options[i]['inventory_remove']);
+        createButton(options[i]['text'], options[i]['nextid'], options[i]['inventory_add'], options[i]['inventory_remove'], options[i]['soundEffect']);
         continue;
-      }
+      };
       continue;
-    }
+    };
     if (options[i]['notInInventory']) {
       if (!(inventory.includes(options[i]['notInInventory']))) {
-        createButton(options[i]['text'], options[i]['nextid'], options[i]['inventory_add'], options[i]['inventory_remove']);
+        createButton(options[i]['text'], options[i]['nextid'], options[i]['inventory_add'], options[i]['inventory_remove'], options[i]['soundEffect']);
         continue;
-      }
+      };
       continue;
-    }
-    createButton(options[i]['text'], options[i]['nextid'], options[i]['inventory_add'], options[i]['inventory_remove']);
-  }
+    };
+    createButton(options[i]['text'], options[i]['nextid'], options[i]['inventory_add'], options[i]['inventory_remove'], options[i]['soundEffect']);
+  };
 };
 
 // Initialize get options function.
@@ -133,7 +143,7 @@ function toggleMuteMusic() {
 }
 
 // Initialize createButton function, takes in the button options.
-function createButton(buttonText, nextId, add_inv, rem_inv) {
+function createButton(buttonText, nextId, add_inv, rem_inv, snd_effect) {
   // Create variable "button", to create an element of button.
   const button = document.createElement('button');
 
@@ -143,7 +153,7 @@ function createButton(buttonText, nextId, add_inv, rem_inv) {
   // Add the buttonClass to the button's class list.
   button.classList.add('buttonClass');
 
-  button.addEventListener('click', () => updateGame(nextId, add_inv, rem_inv))
+  button.addEventListener('click', () => updateGame(nextId, add_inv, rem_inv, snd_effect))
 
 
   // Append the new button to the choice container as a child.
@@ -524,7 +534,8 @@ function setStory(name) {
         },
         {
           text: 'Go East',
-          nextid: 33
+          nextid: 33,
+          notInInventory: 'torch'
         },
         {
           text: 'Go East with the lit torch',
@@ -624,7 +635,8 @@ function setStory(name) {
         {
           text: 'Attack the dragon your sword',
           nextid: 40,
-          inInventory: 'sword'
+          inInventory: 'sword',
+          soundEffect: 'audio/sword_hit.mp3'
         },
         {
           text: 'Investigate the shiny item',

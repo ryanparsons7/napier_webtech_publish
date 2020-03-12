@@ -58,13 +58,13 @@
 }
 
 /* Make the choice container initially hidden */
-.choice_container {
+.button_container {
   display: none;
 }
 
 /* The text element that shows story information about the current node */
 #text {
-  padding: 10px;
+  padding: 10px 70px 10px 70px;
 }
 
 /* The image shown if a story node contains an image to show */
@@ -72,12 +72,15 @@
   height: 250px;
 }
 
+/* Block that contains music control elements */
 #music_controls {
+  position: absolute;
   text-align: left;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
 #music_mute_toggle {
-  margin: 0 0 5px 15px;
   width: 50px;
   height: 50px;
 }
