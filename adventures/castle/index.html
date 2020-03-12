@@ -28,11 +28,12 @@
 </head>
 
 <body>
+  <audio id="backgroundMusic" autoplay>
+    <source src="audio/Teller_of_the_Tales.mp3" type="audio/mpeg">
+  </audio>
   <!--Include header-->
   <div id="header"></div>
   <section>
-    <div class="character_container">
-    </div>
     <div class="base_container">
       <div class="content_container">
         <div id="text">Welcome to the Castle Adventure.<br>What do you wish to name your character?</div>
@@ -44,9 +45,9 @@
         <div id="option-buttons" class="button_container">
           <!--Buttons get added here in js-->
         </div>
-        <audio id="myAudio" autoplay>
-          <source src="audio/Teller_of_the_Tales.mp3" type="audio/mpeg">
-        </audio><br>
+        <div id="music_controls">
+          <button id="music_mute_toggle" onClick="toggleMuteMusic()" class="music_button"><i id="music_mute_button_logo" class="fa fa-volume-up" style="font-size:25px;"></i></button>
+        </div>
       </div>
     </div>
   </section>

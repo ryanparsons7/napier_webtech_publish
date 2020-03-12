@@ -13,6 +13,8 @@ var userName;
 // Define empty inventory array that will store items the character has.
 var inventory = [];
 
+// Play initial background music
+changeMusic('audio/Teller_of_the_Tales.mp3');
 
 // Initialize validateInput function that checks if a string input contains a value
 function validateInput(input) {
@@ -109,7 +111,25 @@ function submitName() {
 
     return true;
   }
+}
 
+// Initialize changeMusic function.
+function changeMusic(musicFile) {
+  var x = document.getElementById("backgroundMusic");
+  x.src = musicFile;
+}
+
+// Initialize stopMusic function.
+function toggleMuteMusic() {
+  var musicElement = document.getElementById("backgroundMusic");
+  var muteButton = document.getElementById("music_mute_button_logo");
+  if (muteButton.classList.contains("fa-volume-mute")) {
+    musicElement.muted = false;
+    muteButton.className = "fas fa-volume-up";
+  } else {
+    musicElement.muted = true;
+    muteButton.className = "fas fa-volume-mute";
+  }
 }
 
 // Initialize createButton function, takes in the button options.
