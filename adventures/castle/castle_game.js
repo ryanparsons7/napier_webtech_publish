@@ -113,7 +113,7 @@ function submitName() {
   }
 }
 
-// Initialize changeMusic function.
+// Initialize changeMusic function. Takes in the path to a new music file to play
 function changeMusic(musicFile) {
   var x = document.getElementById("backgroundMusic");
   x.src = musicFile;
